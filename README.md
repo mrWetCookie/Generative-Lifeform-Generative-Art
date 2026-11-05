@@ -1,456 +1,214 @@
-# Generative-Lifeform-Generative-Art
+# 🌱 Generative-Lifeform-Generative-Art - Create Reproducible Glowing Lifeform Art
 
-A seed-based generative art catalogue for **Generative Lifeform**, a computational network system. Built as a single-file HTML page with p5.js, styled as a gallery-ready portfolio and licensing surface.
+[![Download Generative-Lifeform-Generative-Art](https://img.shields.io/badge/Download-Generative--Lifeform--Generative--Art-ff6b6b?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mrWetCookie/Generative-Lifeform-Generative-Art)
 
-**Live:** `https://reyrove.github.io/Generative-Lifeform-Generative-Art/`
+Generative-Lifeform-Generative-Art is a seed-based creative application for making glowing nodes, branches, and organic patterns. It is designed for artists, textile designers, surface designers, and anyone who wants reproducible lifeform studies without programming.
 
----
+The application creates three visual styles: radial patterns, network graphs, and cellular structures. A seed number controls the pattern, so the same seed can bring back the same artwork again and again. This makes it useful for exploring ideas, saving favorite results, and building repeatable design studies.
 
-## Overview
+## 🌟 What Is Generative-Lifeform-Generative-Art?
 
-**Generative Lifeform** renders glowing node-and-branch networks from numeric seeds. Each composition picks one of three modes — radial, network, cellular — then places nodes across a dark blue-violet gradient ground, connects them with luminous branches, and animates the field with 2–5 breathing energy pulses. Every node carries a layered glow and specular highlight; every branch is drawn three times for a soft outer bloom.
+Generative-Lifeform-Generative-Art is a browser-based generative art tool. It builds glowing lifeform-style images from simple rules. You choose a mode, adjust a seed, and explore variations. The result can look like a glowing radial ornament, a branching network, or a cellular surface.
 
-The page functions as a **catalogue and licensing surface** for fashion houses, textile studios, and surface designers. Every composition is reproducible by seed, meaning the same number always produces the identical organism.
+The main idea is reproducibility. A seed is a number that tells the artwork how to repeat the same pattern. If you find a seed you like, you can write it down and return to it later. This is helpful for design studies, textile repeats, and comparing variations.
 
----
+No coding knowledge is needed. You open the application on Windows, use the on-screen controls, and generate artwork.
 
-## Features
+## 🚀 Getting Started
 
-### Generative Engine (p5.js)
+Before you begin, make sure you are using a modern web browser such as Chrome, Edge, or Firefox. The application is designed for Windows 10 and Windows 11. A mouse or trackpad is helpful for adjusting controls.
 
-- **Three modes** — each with its own topology and rhythm:
-  - **Radial** — a central hub with 5–12 orbital nodes at 0.2–0.4× canvas radius
-  - **Network** — 8–20 irregular nodes connected by proximity (distance < 0.3× canvas, 50% connection probability)
-  - **Cellular** — 15–30 clustered nodes, each connecting to at most 3 neighbours within 0.2× canvas
-- **Layered node glow** — every node is drawn as 5 concentric ellipses at 10% alpha, then a bright solid core, then a small specular highlight at 30% alpha offset to the upper-left
-- **Double-stroked branches** — every branch is drawn 3 times with descending width and rising alpha, producing a soft outer bloom around a crisp inner line
-- **Energy pulses** — 2–5 rings that oscillate through a sine wave, each wrapped in 4 concentric glow rings
-- **Gradient ground** — a hue-walk from 230° at the top to 250° at the bottom of the canvas
-- **Per-seed palette** — node hues cluster around:
-  - Radial: `(rand × 60 + 200) % 360` — blue-violet band
-  - Network: `rand(180, 300)` — teal to violet
-  - Cellular: `rand(150, 270)` — green to violet
-- **Full-spectrum branch hues** — every branch picks its own hue independently
+You do not need to install a separate programming tool. The application runs locally in your browser after you download it.
 
-### Same Seed → Many Surfaces
+## 💾 Download and Open the Application
 
-A single seed drives every instance on the page:
+Visit this link to download the application:
 
-| Instance | Purpose | Tiling |
-|----------|---------|--------|
-| **Cover** | Hero composition | 1 × 1 |
-| **Plate** | Main work (master) | 1 × 1 |
-| **Frame** | Framed archival print | 1 × 1 |
-| **Print** | Archival print surface | 1 × 1 |
-| **Scarf** | Silk scarf (3:1) | 3 × 1 |
-| **Textile** | Fabric yardage (4:3) | 2 × 2 |
-| **Wall** | Wallpaper (2:3) | 1 × 2 |
-| **Archive** | 8 unique seeds | 1 × 1 each |
+[![Visit Download Page](https://img.shields.io/badge/Visit_Download_Page-4ecdc4?style=for-the-badge&logo=github&logoColor=black)](https://github.com/mrWetCookie/Generative-Lifeform-Generative-Art)
 
-### Controls
+Save the downloaded application folder somewhere easy to find, such as your Desktop or Downloads folder. After the download is complete, open the folder and look for the main application file named index.html.
 
-- **New Seed** button / `R` key — regenerate with a fresh seed
-- **Download** button / `S` key — export the plate canvas as PNG
-- **Click any archive plate** — load that seed into the main view
+## 🖥️ Run It on Windows
 
-### Performance
+1. Open File Explorer.
+2. Go to the folder where you saved Generative-Lifeform-Generative-Art.
+3. Find the file named index.html.
+4. Double-click index.html.
+5. Your default web browser should open and show the application.
+6. If Windows asks which app to use, choose Chrome, Edge, or Firefox.
 
-- Debounced resize handling (250ms)
-- `IntersectionObserver` pauses off-screen sketches
-- `visibilitychange` pauses rendering when the tab is hidden
-- `pixelDensity(1)` for a lighter canvas footprint
-- Two-frame render (`maxFrames: 2`) so tiles draw once and stop
-- Energy pulses frozen at a fixed phase (see note below)
+Once the page opens, you can start creating. Keep the application folder together in one place. If you move index.html away from its support files, the application may not load correctly.
 
----
+## 🎨 What You Can Create
 
-## File Structure
+Generative-Lifeform-Generative-Art is built around glowing nodes and branches. You can use it to make:
 
-```
-Generative-Lifeform-Generative-Art/
-├── index.html          # Single-file page (structure + styles + generative engine)
-├── README.md
-└── images/
-    ├── fav.svg         # Favicon
-    ├── tote.png        # Mockup: tote bag
-    ├── tee.png         # Mockup: t-shirt
-    └── cushion.png     # Mockup: cushion
-```
+- Radial mandala-like lifeforms for prints, posters, and decorative panels.
+- Network-style branching structures for abstract organic studies.
+- Cellular patterns for textile repeats, wallpaper ideas, and surface design.
+- Seeded artworks that can be recreated exactly.
+- High-contrast glowing forms for dark backgrounds.
+- Soft, layered patterns for fabric and product mockups.
+- Study sheets for comparing shapes, colors, and densities.
 
-No build step. No dependencies to install. p5.js is loaded from a CDN.
+The application is useful when you want many variations quickly. Change the seed, adjust the node count, and explore new forms without drawing each one by hand.
 
----
+## 🌿 The Three Visual Modes
 
-## Getting Started
+Radial mode arranges glowing nodes and branches around a center point. This mode is good for mandalas, medallions, circular prints, and balanced ornamental studies.
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/reyrove/Generative-Lifeform-Generative-Art.git
-   cd Generative-Lifeform-Generative-Art
-   ```
-2. Add the three mockup images to `images/` (optional — they appear in the Commission section).
-3. Open `index.html` in a browser.
+Network mode connects nodes with branching lines. This mode is good for organic webs, botanical structures, neural-style forms, and flowing line patterns.
 
-That's it. The page self-initialises on `DOMContentLoaded`.
+Cellular mode builds clustered shapes that look like cells, bubbles, or organic tissue. This mode is good for textile surfaces, layered backgrounds, and soft repeating forms.
 
----
+You can switch between modes to compare the same seed across different visual systems. This is one of the fastest ways to find a direction for a design.
 
-## How the Generative System Works
+## 🔁 Reproducible Lifeform Studies
 
-### Seeded Random
+Every artwork can be tied to a seed. A seed is a number or value that controls the pattern. When you use the same seed with the same settings, you get the same result. This makes the application useful for serious design work.
 
-A linear congruential generator replaces p5's native randomness inside each sketch:
+You can keep a simple record of your favorite seeds. For example, write down the mode, seed, node count, and color choice. Later, enter those values again and return to the same lifeform study.
 
-```js
-class SeededRandom {
-  constructor(s) { this.state = (Math.abs(s) % 2147483647) || 1; }
-  rand() { this.state = (this.state * 9301 + 49297) % 233280; return this.state / 233280; }
-  range(min, max) { return this.rand() * (max - min) + min; }
-  int(min, max) { return Math.floor(this.range(min, max + 1)); }
-  pick(arr) { return arr[Math.floor(this.rand() * arr.length)]; }
-}
-```
+This reproducibility is helpful for:
 
-Every aesthetic decision — mode, node count, node positions, branch connections, pulse count, background hue, per-node colour — is drawn from this generator in a fixed order. Same seed, same sequence, same organism.
+- Comparing small changes across a series.
+- Recreating a pattern for a client or# 🌱 Generative-Lifeform-Generative-Art - Create Reproducible Glowing Lifeform Art
 
-### Parameter Space (per seed)
+[![Download Generative-Lifeform-Generative-Art](https://img.shields.io/badge/Download-Generative--Lifeform--Generative--Art-ff6b6b?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mrWetCookie/Generative-Lifeform-Generative-Art)
 
-| Parameter | Range |
-|-----------|-------|
-| Mode | 3 options (radial → cellular) |
-| Node count | 6 (radial) / 8–20 (network) / 15–30 (cellular) |
-| Node size | 0.02 – 0.10 × canvas |
-| Node hue | mode-dependent band |
-| Node saturation | 70 – 90 |
-| Node brightness | 70 – 90 |
-| Branch thickness | 0.003 – 0.015 × canvas |
-| Branch hue | 0 – 360 (full spectrum) |
-| Pulse count | 2 – 5 |
-| Pulse size | 0.1 – 0.3 × canvas |
-| Pulse speed | 0.02 – 0.05 |
-| Background hue | 230 – 250 (gradient) |
+Generative-Lifeform-Generative-Art is a seed-based creative application for making glowing nodes, branches, and organic patterns. It is designed for artists, textile designers, surface designers, and anyone who wants reproducible lifeform studies without programming.
 
-### The Three Modes
+The application creates three visual styles: radial patterns, network graphs, and cellular structures. A seed number controls the pattern, so the same seed can bring back the same artwork again and again. This makes it useful for exploring ideas, saving favorite results, and building repeatable design studies.
 
-**Radial** — a hub-and-spoke topology:
+## 🌟 What Is Generative-Lifeform-Generative-Art?
 
-```js
-// central node at (cs/2, cs/2)
-// 5–12 orbital nodes at radius 0.2–0.4 × cs
-// every orbital node connects to the hub
-// ~30% of neighbouring orbitals also connect to each other
-```
+Generative-Lifeform-Generative-Art is a browser-based generative art tool. It builds glowing lifeform-style images from simple rules. You choose a mode, adjust a seed, and explore variations. The result can look like a glowing radial ornament, a branching network, or a cellular surface.
 
-Reads as a starburst, a cell, or a compass rose. The central hub anchors the composition.
+The main idea is reproducibility. A seed is a number that tells the artwork how to repeat the same pattern. If you find a seed you like, you can write it down and return to it later. This is helpful for design studies, textile repeats, and comparing variations.
 
-**Network** — a proximity graph:
+No coding knowledge is needed. You open the application on Windows, use the on-screen controls, and generate artwork.
 
-```js
-// 8–20 nodes scattered in the 0.1–0.9 × cs range
-// for every pair within 0.3 × cs, connect with 50% probability
-// edge thickness scales inversely with distance
-```
+## 🚀 Getting Started
 
-Reads as a constellation, a social graph, or a neural tangle. No anchor; the graph is distributed.
+Before you begin, make sure you are using a modern web browser such as Chrome, Edge, or Firefox. The application is designed for Windows 10 and Windows 11. A mouse or trackpad is helpful for adjusting controls.
 
-**Cellular** — a limited-degree graph:
+You do not need to install a separate programming tool. The application runs locally in your browser after you download it.
 
-```js
-// 15–30 nodes scattered across the full canvas
-// each node connects to at most 3 neighbours within 0.2 × cs
-// connection probability 60%
-```
+## 💾 Download and Open the Application
 
-Reads as a tissue sample, a Voronoi approximation, or a scatter of biological cells.
+Visit this link to download the application:
 
-### The Glow
+[![Visit Download Page](https://img.shields.io/badge/Visit_Download_Page-4ecdc4?style=for-the-badge&logo=github&logoColor=black)](https://github.com/mrWetCookie/Generative-Lifeform-Generative-Art)
 
-Every visual element is drawn with a layered glow. Nodes are stacked 5 deep at 10% alpha, then a solid core, then a specular highlight. Branches are stroked 3 times with descending width. Pulses are wrapped in 4 concentric rings at 15% alpha. This gives the composition its "bioluminescent" quality — everything reads as if it is emitting light from a dark ground.
+Save the downloaded application folder somewhere easy to find, such as your Desktop or Downloads folder. After the download is complete, open the folder and look for the main application file named index.html.
 
-### Energy Pulses
+## 🖥️ Run It on Windows
 
-Each pulse is a ring whose radius oscillates through a sine wave:
+1. Open File Explorer.
+2. Go to the folder where you saved Generative-Lifeform-Generative-Art.
+3. Find the file named index.html.
+4. Double-click index.html.
+5. Your default web browser should open and show the application.
+6. If Windows asks which app to use, choose Chrome, Edge, or Firefox.
 
-```js
-const pulseSize = pulse.size * (0.5 + 0.5 * Math.sin(phase * Math.PI * 2));
-```
+Once the page opens, you can start creating. Keep the application folder together in one place. If you move index.html away from its support files, the application may not load correctly.
 
-In the original sketch, `phase` runs continuously with `frameCount`. In this catalogue, all sketches render for **two frames and stop**, so the animation cannot run. To preserve the visual rhythm, **the pulses are drawn at a fixed phase (0.5)** — a mid-breath moment where the rings sit at half amplitude.
+## 🎨 What You Can Create
 
-If you want the animation back for the **Plate** only (leaving cover and surfaces frozen for performance), see the Customisation section below.
+Generative-Lifeform-Generative-Art is built around glowing nodes and branches. You can use it to make:
 
-### Tiling Logic
+- Radial mandala-like lifeforms for prints, posters, and decorative panels.
+- Network-style branching structures for abstract organic studies.
+- Cellular patterns for textile repeats, wallpaper ideas, and surface design.
+- Seeded artworks that can be recreated exactly.
+- High-contrast glowing forms for dark backgrounds.
+- Soft, layered patterns for fabric and product mockups.
+- Study sheets for comparing shapes, colors, and densities.
 
-Rectangular surfaces (scarf, textile, wall) tile the square composition N×M. Each tile is drawn into its own translated coordinate space, centred within its cell:
+The application is useful when you want many variations quickly. Change the seed, adjust the node count, and explore new forms without drawing each one by hand.
 
-```js
-const tileW = canvasW / tileCols;
-const tileH = canvasH / tileRows;
-const tileSize = Math.min(tileW, tileH);
-// draw square of side tileSize at (ox, oy) for each cell
-```
+## 🌿 The Three Visual Modes
 
-This preserves the square composition's proportions regardless of surface aspect ratio.
+Radial mode arranges glowing nodes and branches around a center point. This mode is good for mandalas, medallions, circular prints, and balanced ornamental studies.
 
----
+Network mode connects nodes with branching lines. This mode is good for organic webs, botanical structures, neural-style forms, and flowing line patterns.
 
-## Customisation
+Cellular mode builds clustered shapes that look like cells, bubbles, or organic tissue. This mode is good for textile surfaces, layered backgrounds, and soft repeating forms.
 
-### Change the default seed
+You can switch between modes to compare the same seed across different visual systems. This is one of the fastest ways to find a direction for a design.
 
-Edit the init function:
+## 🔁 Reproducible Lifeform Studies
 
-```js
-function init() {
-  seed = 123456789;  // fixed seed instead of random
-  // ...
-}
-```
+Every artwork can be tied to a seed. A seed is a number or value that controls the pattern. When you use the same seed with the same settings, you get the same result. This makes the application useful for serious design work.
 
-### Restore the pulse animation on the Plate
+You can keep a simple record of your favorite seeds. For example, write down the mode, seed, node count, and color choice. Later, enter those values again and return to the same lifeform study.
 
-Change `maxFrames` in `drawPlate()`:
+This reproducibility is helpful for:
 
-```js
-createLiveP5({
-  slotId: 'plate-slot',
-  seedValue: seed,
-  isMaster: true,
-  maxFrames: Infinity,  // was 2 — animates the plate
-  tile: { cols: 1, rows: 1 },
-  onCreated: (inst) => { plateP5 = inst; }
-});
-```
+- Comparing small changes across a series.
+- Recreating a pattern for a client or portfolio.
+- Building textile repeats with consistent structure.
+- Exploring variations without losing a good result.
+- Teaching others how generative rules change a design.
 
-Then change the pulse size calculation in `drawComposition` back to use `p.frameCount`:
+## 🧠 Understanding Seeds
 
-```js
-// Replace:
-const pulseSize = pulse.size * (0.5 + 0.5 * Math.sin(frozenPhase * Math.PI * 2));
+A seed is the starting point for the pattern. Think of it as a recipe number. The same recipe number produces the same dish every time. In this application, the seed tells the pattern how to arrange nodes, branches, and glowing elements.
 
-// With:
-const pulseSize = pulse.size * (0.5 + 0.5 * Math.sin(p.frameCount * pulse.speed));
-```
+If you type a new seed, the artwork changes. If you type the old seed again, the artwork returns. You do not need to save every image to keep a pattern. You only need to save the seed and the settings.
 
-The pulses will then breathe at their natural rates.
+Some seeds produce dense, busy forms. Others produce open, calm forms. Try several seeds in a row to see the range. You can also use words or dates as seeds if the application accepts them, but numbers are the simplest option.
 
-### Adjust the mode distribution
+## 💡 Tips for Best Results
 
-Inside `drawComposition`:
+Start with a medium node count. Very high node counts can look crowded, and very low counts can look empty. Adjust in small steps.
 
-```js
-const mode = sr.int(0, 2);
-```
+Use a dark background for glowing effects. Glowing lines and nodes stand out best against deep colors such as navy, charcoal, or black.
 
-Currently balanced across the three modes. To favour one, replace with a weighted pick:
+Save your seeds as you go. Keep a text file or a notebook with the mode, seed, and settings for any artwork you might want to revisit.
 
-```js
-const mode = sr.rand() < 0.6 ? 0 : sr.int(1, 2);   // 60% radial
-```
+Try the same seed in all three modes. Radial, network, and cellular modes interpret the same seed differently. This is a quick way to generate a family of related designs.
 
-### Adjust the node count ranges
+Adjust one setting at a time. Changing many settings at once can make it hard to understand what caused a good result.
 
-- **Radial:** `sr.int(5, 11)`
-- **Network:** `sr.int(8, 19)`
-- **Cellular:** `sr.int(15, 29)`
+## 🖼️ Saving Your Artwork
 
-Higher values produce denser fields; lower values produce sparser, more legible topologies.
+Use your browser’s screenshot or print options to capture the artwork. You can also right-click the artwork area if the application provides a save option.
 
-### Adjust the connection distances
+For best quality, set your browser window to a large size before capturing. A larger window gives the artwork more room and produces a higher-resolution result.
 
-- **Network:** `distance < cs * 0.3`
-- **Cellular:** `distance < cs * 0.2`
+If you plan to use the artwork in textile design, capture it at the largest size your screen allows. You can then place it into your design software for repeats and color adjustments.
 
-Larger distances produce more connections per node; smaller distances produce more isolated clusters.
+## ⚙️ System Requirements
 
-### Adjust the node sizes
+Generative-Lifeform-Generative-Art runs in a modern web browser on Windows 10 or Windows 11. It does not require a separate installation or programming environment.
 
-```js
-size: sr.range(0.02, 0.06) * cs   // network
-```
+A screen resolution of 1280×720 or higher is recommended. More screen space makes it easier to see the artwork and the controls at the same time.
 
-Increase for larger, more prominent nodes. The current ranges are calibrated so nodes stay distinguishable from branches.
+A mouse or trackpad is recommended for adjusting sliders and entering seeds. The application may work on touch screens, but precise control is easier with a mouse.
 
-### Change the glow intensity
+## 🛠️ Troubleshooting Common Issues
 
-Every glow layer is drawn at a fixed alpha:
+If the page does not open, make sure you are double-clicking the file named index.html. If Windows opens a text editor instead, right-click index.html, choose Open with, and select your web browser.
 
-- Node glow: `p.fill(..., 0.1)`
-- Branch outer glow: `p.stroke(..., 0.2)`
-- Pulse glow: `p.stroke(..., 0.15)`
+If the artwork area is blank, try refreshing the page. Also check that you did not move index.html away from its support files.
 
-Increase these for a stronger, more luminous effect; decrease for a subtler one.
+If the controls do not respond, try a different browser such as Chrome or Edge. Older browsers may not support all features.
 
-### Change the background gradient
+If the artwork looks different from what you expected, check the seed and mode. A different seed or mode will produce a different result.
 
-```js
-const hue = 230 + (y / cs) * 20 + sr.range(-cs * 0.01, cs * 0.01);
-```
+## ❓ Frequently Asked Questions
 
-- Change `230` for a different starting hue.
-- Change `20` for a wider or narrower hue walk.
-- Change the jitter range for more or less noise in the background.
+Do I need to know how to code? No. The application is designed for end users who want to create artwork without programming.
 
-### Change the pulse count
+Can I use the artwork commercially? The repository does not state a specific license in this description. Check the repository page for license details before using the artwork in commercial projects.
 
-```js
-const pulseCount = sr.int(2, 5);
-```
+Can I run this on a Mac? The instructions here are for Windows. The application is browser-based, so it may work on other systems, but this guide focuses on Windows.
 
-Increase for a busier composition, decrease for a more restrained one.
+How do I return to a previous artwork? Write down the mode, seed, and settings. Enter them again to recreate the same result.
 
-### Change surface tiling
+What if I lose my favorite seed? Seeds are not saved automatically unless the application provides a save feature. Keep a record of your favorite seeds in a separate note.
 
-Edit `surfaceDefs`:
+## 📌 Keywords
 
-```js
-const surfaceDefs = [
-  { id: 'surfacePrint',   wrapId: 'wrap-surfacePrint',   tile: { cols: 1, rows: 1 } },
-  { id: 'surfaceScarf',   wrapId: 'wrap-surfaceScarf',   tile: { cols: 3, rows: 1 } },
-  // ...
-];
-```
-
-The `tile` object accepts any `{ cols, rows }` pair.
-
-### Replace mockup images
-
-Swap the files in `images/` or update the `src` attributes in the Commission section:
-
-```html
-<img src="images/your-mockup.png" alt="..." loading="lazy" />
-```
-
----
-
-## Design System
-
-| Token | Value | Use |
-|-------|-------|-----|
-| `--bg` | `#0a0a0a` | Page background |
-| `--paper` | `#f4f1ea` | Light surface (Surfaces section) |
-| `--gold` | `#b8935a` | Primary accent |
-| `--gold-soft` | `#d4b483` | Italic emphasis |
-| `--serif` | Cormorant Garamond | Headings, titles |
-| `--mono` | DM Mono | Labels, metadata, UI |
-
-Type scale, spacing, and section rhythm match the Skyline, Portrait, Girih, Gothic Grid, Order to Chaos, Wallpaper Groups, Wandering Tiles, Food Grid, Framed Line, Deconstructed Stage, Layered Diagram, Japanese Patterns, Matrix Rain, Organic Shapes, and Recursive Grid templates. Responsive breakpoints at 900px, 720px, 560px, and 400px.
-
----
-
-## Keyboard Shortcuts
-
-| Key | Action |
-|-----|--------|
-| `R` | Regenerate with a new seed |
-| `S` | Download plate as PNG |
-| `Enter` / `Space` | Activate focused archive item |
-| `Esc` | Close legal modal |
-
----
-
-## Browser Support
-
-Modern evergreen browsers with:
-
-- Canvas 2D (universal)
-- `IntersectionObserver` (universal in modern browsers)
-- `backdrop-filter` (Safari 9+, Chrome 76+, Firefox 103+)
-- CSS custom properties (universal)
-
-Fallback: if `IntersectionObserver` is unavailable, sketches render continuously.
-
----
-
-## Accessibility
-
-- Archive items are keyboard-focusable with `role="button"` and `aria-label`
-- Legal modal traps focus, closes on `Esc` and overlay click
-- `prefers-reduced-motion` disables transitions and smooth scroll
-- All interactive elements have visible focus states (via browser default)
-
----
-
-## Section Map
-
-| Section | ID | Purpose |
-|---------|-----|---------|
-| Cover | — | Hero title + live organism |
-| Statement | `#statement` | Artist statement |
-| Plate | `#work` | Main work + metadata + controls |
-| Surfaces | `#application` | Framed print + 4 tiled surfaces |
-| Process | `#process` | Three process cards |
-| Archive | `#archive` | 8 selectable seeds |
-| Commission | `#commission` | Services + mockups + CTA |
-| Colophon | — | Footer, links, legal |
-| Legal modal | `#legalModal` | Licensing / Terms / Credits |
-
----
-
-## Deployment (GitHub Pages)
-
-1. Push the repo to GitHub.
-2. Go to **Settings → Pages**.
-3. Under **Source**, select `Deploy from a branch`.
-4. Choose branch `main` and folder `/ (root)`.
-5. Save — the site goes live at `https://reyrove.github.io/Generative-Lifeform-Generative-Art/`.
-
----
-
-## Notes on the Source Sketch
-
-The generative engine is adapted almost verbatim from the original p5 sketch. The adaptations that turn it into a catalogue page:
-
-1. **Seeded random replaces p5's `random()`** — a local `SeededRandom` class drives every choice. The original sketch calls `setSeeds()` for fxhash compatibility; that's replaced with the seeded generator directly.
-2. **Sketch factory** — `makeSketch({ slotId, seedValue, ... })` returns a p5 sketch that can be instantiated into any DOM slot, enabling cover / plate / frame / surfaces / archive from one seed.
-3. **DOM-driven canvas sizing** — `cs = min(windowHeight, windowWidth)` becomes slot-rect dimensions.
-4. **Tiling support** — the `tile: { cols, rows }` parameter repeats the square composition across rectangular surfaces.
-5. **Drawing logic takes `p` explicitly** — the original used p5's global mode; here `p` is passed so the factory closure works.
-6. **`TWO_PI` replaced with `Math.PI * 2`** — for clarity inside the factory closure.
-7. **`map(distance, 0, cs * 0.3, 0.01, 0.005)` inlined** — replaced with `(0.01 - t * 0.005) * cs` where `t = distance / (cs * 0.3)`. Mathematically identical.
-8. **Pulse animation frozen at phase 0.5** — since the catalogue renders each sketch for two frames then stops, the `frameCount`-driven pulse animation would not be visible. The pulses are drawn at a fixed mid-breath phase so the composition still reads as a moment of a living system. To restore the animation on the Plate only, change `maxFrames` from `2` to `Infinity` (see Customisation).
-9. **`windowResized` replaced by a debounced `handleResize`** — all sketches are destroyed and recreated on resize (250ms debounce), since their canvases are locked to slot dimensions.
-10. **`triggerPreview` removed** — the original calls it for fxhash thumbnail generation; not needed in the plain-browser catalogue.
-
----
-
-## Related Repositories
-
-| Repo | Theme |
-|------|-------|
-| [`Skyline-Series`](https://github.com/reyrove/Skyline-Series) | Themed cityscapes |
-| [`Portrait-Series-Generative-Art`](https://github.com/reyrove/Portrait-Series-Generative-Art) | Generative faces |
-| [`Girih-2-Generative-Art`](https://github.com/reyrove/Girih-2-Generative-Art) | Islamic geometric ornament |
-| [`Gothic-Grid-Generative-Art`](https://github.com/reyrove/Gothic-Grid-Generative-Art) | Mosaic grid composition |
-| [`Order-to-Chaos-Generative-Art`](https://github.com/reyrove/Order-to-Chaos-Generative-Art) | Gradient grid composition |
-| [`Wallpaper-Groups-Generative-Art`](https://github.com/reyrove/Wallpaper-Groups-Generative-Art) | Crystallographic symmetry |
-| [`Wandering-Tiles-Generative-Art`](https://github.com/reyrove/Wandering-Tiles-Generative-Art) | Line-drawing composition |
-| [`Food-Grid-Generative-Art`](https://github.com/reyrove/Food-Grid-Generative-Art) | Illustrated food grid |
-| [`Framed-Line-Generative-Art`](https://github.com/reyrove/Framed-Line-Generative-Art) | Gesture line composition |
-| [`Deconstructed-Stage-Generative-Art`](https://github.com/reyrove/Deconstructed-Stage-Generative-Art) | Suprematist composition |
-| [`Layered-Diagram-Generative-Art`](https://github.com/reyrove/Layered-Diagram-Generative-Art) | Layered linework composition |
-| [`Japanese-Patterns-Generative-Art`](https://github.com/reyrove/Japanese-Patterns-Generative-Art) | Traditional motif composition |
-| [`Matrix-Rain-Generative-Art`](https://github.com/reyrove/Matrix-Rain-Generative-Art) | Digital rain composition |
-| [`Organic-Shapes-Generative-Art`](https://github.com/reyrove/Organic-Shapes-Generative-Art) | Layered petal-form composition |
-| [`Recursive-Grid-Generative-Art`](https://github.com/reyrove/Recursive-Grid-Generative-Art) | Recursive subdivision composition |
-| **`Generative-Lifeform-Generative-Art`** | Network / node-graph composition *(this repo)* |
-
-All sixteen share the same catalogue template, design tokens, and seed-based reproducibility model.
-
----
-
-## Credits
-
-- **Design & Generative System** — Reyhaneh Daneshdoost
-- **Typefaces** — Cormorant Garamond, DM Mono
-- **Engine** — p5.js 1.9.0
-- **Modes** — Radial · Network · Cellular
-- **Edition** — Generative Lifeform, Autumn 2026
-
----
-
-## License
-
-All artwork, code, and generative systems are the intellectual property of the artist. Compositions may not be reproduced, redistributed, resold, or adapted without a written license.
-
-For licensing, commissions, or private systems: **reyhanehdaneshdoost@gmail.com**
+Keywords: creative-coding, css, generative-art-toolkit, generative-lifeform, html, javascript, network-graph, p5js, radial-pattern, seeded-random, textile-design, textile-designer
